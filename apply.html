@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Заявка — УПКБ КСИПТ</title>
+<meta name="description" content="Оставьте заявку на прототип, монтаж или разработку платы.">
+<meta name="theme-color" content="#1F4E79">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Onest:wght@400;500;600&family=Unbounded:wght@700;800&display=swap&subset=cyrillic">
+<link rel="stylesheet" href="style.css">
+</head><body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="УПКБ КСИПТ">УПКБ<span>КСИПТ</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Меню</button>
+    <nav class="nav" id="nav" aria-label="Основное меню">
+      <a href="index.html">Главная</a><a href="about.html">О нас</a><a href="contacts.html">Контакты</a><a href="apply.html" aria-current="page">Оставить заявку</a>
+    </nav>
+  </div>
+</header>
+<main>
+<section class="page-head"><div class="wrap"><div class="stack">
+  <span class="tag">Пилотный заказ</span><h1>Оставить заявку</h1><p>Опишите, что нужно сделать. Для пилотного заказа нам достаточно короткого описания, количества и желаемого срока.</p></div></div></section>
+<section class="section"><div class="wrap"><div class="split split-form">
+  <form class="panel form" id="apply-form" name="zayavka" method="POST" data-mode="demo" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+    <input type="hidden" name="form-name" value="zayavka">
+    <p class="hp" aria-hidden="true"><label>Не заполняйте: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+    <div class="field"><label for="f-name">Имя</label><input id="f-name" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться"><span class="err" aria-live="polite"></span></div>
+    <div class="field"><label for="f-contact">Контакт</label><input id="f-contact" name="contact" type="text" autocomplete="email" placeholder="Телефон, e-mail или мессенджер"><span class="err" aria-live="polite"></span></div>
+    <div class="field"><label for="f-type">Тип работы</label><select id="f-type" name="type"><option>Разработка печатной платы</option><option>Прошивка / программирование</option><option>Монтаж и пайка</option><option>Кабельные жгуты</option><option>Прототип или опытный образец</option><option>Учебный стенд</option><option>Другое</option></select></div>
+    <div class="field"><label for="f-qty">Количество, шт.</label><input id="f-qty" name="qty" type="number" min="1" inputmode="numeric" placeholder="Например, 10"></div>
+    <div class="field"><label for="f-date">Желаемый срок</label><input id="f-date" name="deadline" type="text" placeholder="Например, через неделю"></div>
+    <div class="field"><label for="f-company">Компания (если есть)</label><input id="f-company" name="company" type="text" autocomplete="organization"></div>
+    <div class="field full"><label for="f-desc">Описание задачи</label><textarea id="f-desc" name="description" placeholder="Что нужно сделать, какие компоненты и документация уже есть"></textarea><span class="err" aria-live="polite"></span></div>
+    <div class="full btns"><button class="btn btn-primary" type="submit">Отправить заявку</button></div>
+    <div class="form-status" id="form-status" role="status" hidden></div>
+  </form>
+  <aside class="panel stack">
+    <img src="assets/img/cat-order.png" alt="Котик с посылкой" loading="lazy" decoding="async">
+    <h3 class="gold">Что будет дальше</h3>
+    <ol class="steps"><li>Понятное ТЗ</li><li>Расчёт цены</li><li>Согласованные сроки</li><li>Проверка перед передачей</li></ol>
+    <p class="note">Ориентир по срокам для малых партий и прототипов: 2–4 дня при наличии деталей. Это ориентир, а не гарантия.</p>
+  </aside>
+</div></div></section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="stack" style="gap:10px">
+      <a class="logo" href="index.html">УПКБ<span>КСИПТ</span></a>
+      <p>Учебно-производственное конструкторское бюро. Проект первого года работы. Цифры бюджета и выручки приведены по бизнес-плану и являются плановыми.</p>
+    </div>
+    <nav aria-label="Меню в подвале"><a href="index.html">Главная</a><a href="about.html">О нас</a><a href="contacts.html">Контакты</a><a href="apply.html">Оставить заявку</a></nav>
+  </div>
+</footer>
+<script src="main.js" defer></script>
+</body></html>
