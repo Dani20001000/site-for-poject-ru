@@ -12,6 +12,14 @@
   if (!form) return;
   var status = document.getElementById('form-status');
 
+  // Расчёт из калькулятора на странице «Услуги»
+  try {
+    var calc = new URLSearchParams(location.search).get('calc');
+    if (calc && form.elements['description'] && !form.elements['description'].value) {
+      form.elements['description'].value = calc;
+    }
+  } catch (e) {}
+
   function setErr(id, msg) {
     var f = document.getElementById(id);
     if (!f) return;
