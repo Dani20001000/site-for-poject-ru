@@ -116,6 +116,7 @@ h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; line-height: 
 
 /* ---------- facts ---------- */
 .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.facts.facts-3 { grid-template-columns: repeat(3, 1fr); }
 .fact { display: flex; flex-direction: column; gap: 10px; }
 .fact .num { font-size: clamp(1.5rem, 2.6vw, 2.2rem); }
 .fact .unit { font: 600 0.78rem var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
@@ -143,7 +144,7 @@ h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; line-height: 
 .split { display: grid; grid-template-columns: 1.3fr 1fr; gap: 20px; align-items: stretch; }
 .split-form { grid-template-columns: 1.5fr 1fr; }
 .grid3 { grid-template-columns: repeat(3, 1fr); }
-.base-media { display: flex; flex-direction: column; gap: 16px; justify-content: space-between; }
+.base-media { display: flex; flex-direction: column; gap: 16px; justify-content: center; }
 .base-media img { width: min(220px, 100%); margin-inline: auto; }
 .check { background: var(--accent); color: var(--panel); border-radius: var(--radius); padding: 18px 22px; font-weight: 600; }
 .eq { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -235,6 +236,7 @@ tr.sum td:nth-child(2) { color: var(--panel); }
 /* ---------- responsive ---------- */
 @media (max-width: 980px) {
   .grid4, .facts, .phases { grid-template-columns: repeat(2, 1fr); }
+  .facts.facts-3 { grid-template-columns: repeat(2, 1fr); }
   .team { grid-template-columns: repeat(2, 1fr); }
   .split, .split-form, .closing, .contact-grid { grid-template-columns: 1fr; }
   .grid3 { grid-template-columns: 1fr; }
@@ -252,6 +254,7 @@ tr.sum td:nth-child(2) { color: var(--panel); }
   body { font-size: 16px; }
   .two, .form, .trio { grid-template-columns: 1fr; }
   .grid4, .facts, .phases, .team { grid-template-columns: 1fr; }
+  .facts.facts-3 { grid-template-columns: 1fr; }
   .row-media { grid-template-columns: 1fr; }
   .who img { width: 84px; }
   .months span { font-size: 0.6rem; height: 24px; }

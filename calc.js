@@ -8,8 +8,8 @@
   var GROUPS = [
     { title: 'Монтаж плат', items: [
       { id: 'hand',    name: 'Ручной монтаж типовой платы', unit: 'шт',    min: 600,  max: 600,  step: 1,  hint: 'за работу, плата 20–40 компонентов' },
-      { id: 'smt_std', name: 'SMT: стандартный компонент',  unit: 'точка', min: 0.48, max: 0.96, step: 10 },
-      { id: 'smt_cx',  name: 'SMT: сложный компонент',      unit: 'точка', min: 2.4,  max: 4.8,  step: 10 },
+      { id: 'smt_std', name: 'Автомат: обычный компонент',  unit: 'точка', min: 0.48, max: 0.96, step: 10 },
+      { id: 'smt_cx',  name: 'Автомат: сложный компонент',      unit: 'точка', min: 2.4,  max: 4.8,  step: 10 },
       { id: 'ic_sop',   name: 'Микросхема SOP',    unit: 'чип', min: 120, max: 120, step: 1, open: true },
       { id: 'ic_msop',  name: 'Микросхема MSOP',   unit: 'чип', min: 120, max: 120, step: 1, open: true },
       { id: 'ic_tssop', name: 'Микросхема TSSOP',  unit: 'чип', min: 120, max: 120, step: 1, open: true },
@@ -25,7 +25,7 @@
       { id: 'harness', name: 'Вязка жгутов', unit: 'час', min: 750, max: 750, step: 1, hint: 'за работу' }
     ]},
     { title: 'Прототипы', items: [
-      { id: 'npi', name: 'NPI: прототип с нуля', unit: 'заказ', min: 16000, max: 16000, step: 1, open: true, hint: 'от ТЗ и Gerber до опытного образца' }
+      { id: 'npi', name: 'Прототип с нуля', unit: 'заказ', min: 16000, max: 16000, step: 1, open: true, hint: 'от задания и файлов до готового образца' }
     ]}
   ];
   var RES_MIN = 1.1, RES_MAX = 1.15, QTY_MAX = 1000000;
