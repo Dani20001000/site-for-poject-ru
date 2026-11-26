@@ -8,6 +8,62 @@
     });
   }
 
+  // ---------- scroll reveal ----------
+  (function () {
+    var revealSelector =
+      '.site-header, .site-footer, .hero-copy, .sec-head, .page-head .stack, .panel';
+    var revealEls = Array.prototype.slice.call(document.querySelectorAll(revealSelector));
+    if (!revealEls.length) return;
+
+    var threshold = window.innerHeight * 0.9;
+
+    function updateReveals() {
+      var th = window.innerHeight * 0.9;
+      revealEls.forEach(function (el) {
+        var rect = el.getBoundingClientRect();
+        if (rect.top < th) {
+          el.classList.add('is-visible');
+        } else {
+          el.classList.remove('is-visible');
+        }
+      });
+    }
+
+    // Initial load: stagger reveal for elements already above the threshold
+    var initialEls = revealEls
+      .filter(function (el) {
+        return el.getBoundingClientRect().top < threshold;
+      })
+      .sort(function (a, b) {
+        return a.getBoundingClientRect().top - b.getBoundingClientRect().top;
+      });
+
+    initialEls.forEach(function (el, i) {
+      setTimeout(function () {
+        var rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.9) {
+          el.classList.add('is-visible');
+        }
+      }, i * 50);
+    });
+
+    // Scroll / resize handler with requestAnimationFrame
+    var ticking = false;
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(function () {
+          updateReveals();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+  })();
+
+  // ---------- form handling (unchanged) ----------
   var form = document.getElementById('apply-form');
   if (!form) return;
   var status = document.getElementById('form-status');
@@ -46,17 +102,24 @@
     if (mode === 'netlify') {
       var body = new URLSearchParams(new FormData(form)).toString();
       status.textContent = 'Отправляем заявку…';
-      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body })
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body
+      })
         .then(function (r) {
           if (!r.ok) throw new Error('bad status');
-          status.textContent = 'Заявка отправлена. Мы свяжемся с вами и пришлём расчёт цены и сроки.';
+          status.textContent =
+            'Заявка отправлена. Мы свяжемся с вами и пришлём расчёт цены и сроки.';
           form.reset();
         })
         .catch(function () {
-          status.textContent = 'Не удалось отправить заявку. Проверьте соединение и попробуйте ещё раз.';
+          status.textContent =
+            'Не удалось отправить заявку. Проверьте соединение и попробуйте ещё раз.';
         });
     } else {
-      status.textContent = 'Демо-режим: форма заполнена верно, но заявка никуда не отправлена. Подключите отправку в настройках сайта.';
+      status.textContent =
+        'Демо-режим: форма заполнена верно, но заявка никуда не отправлена. Подключите отправку в настройках сайта.';
     }
   });
 })();

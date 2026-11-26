@@ -319,3 +319,116 @@ tr.sum td:nth-child(2) { color: var(--panel); }
 }
 .table-budget td:nth-child(2), .table-budget th:nth-child(2) { color: inherit; font-size: inherit; }
 .table-budget td:nth-child(2) { color: var(--soft); }
+
+/* ---------- scroll ---------- */
+.js .site-header,
+.js .site-footer,
+.js .hero-copy,
+.js .sec-head,
+.js .page-head .stack,
+.js .panel {
+  filter: blur(4px);
+  transform: translateY(24px);
+  transition: filter 0.25s linear, transform 0.25s linear;
+  will-change: filter, transform;
+}
+
+.js .site-header.is-visible,
+.js .site-footer.is-visible,
+.js .hero-copy.is-visible,
+.js .sec-head.is-visible,
+.js .page-head .stack.is-visible,
+.js .panel.is-visible {
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .site-header,
+  .js .site-footer,
+  .js .hero-copy,
+  .js .sec-head,
+  .js .page-head .stack,
+  .js .panel {
+    filter: none;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* =========================================
+   ФИКС МОБИЛЬНОЙ ВЕРСТКИ (ГОРИЗОНТАЛЬНЫЙ СКРОЛЛ)
+   ========================================= */
+
+/* 1. Полностью запрещаем странице скроллиться влево-вправо */
+html, body {
+  overflow-x: clip; /* clip не ломает работу sticky-хэдера, в отличие от hidden */
+  max-width: 100vw;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Заставляем длинные слова и ссылки переноситься, а не растягивать экран */
+body {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* 3. Запрещаем элементам внутри сеток и флексбоксов вылезать за пределы контейнера */
+.grid4 > *, .facts > *, .phases > *, .team > *, .calc-grid > *, 
+.split > *, .two > *, .contact-grid > *, .trio > *, 
+.calc-row > *, .prices > div > *, .stack > *, .btns > * {
+  min-width: 0;
+}
+
+/* 4. Уменьшаем сетку месяцев (12 колонок), чтобы она влезала на узкие экраны */
+.months {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.months span {
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* 5. Плашки (теги) не должны растягивать экран */
+.tag {
+  max-width: 100%;
+  flex-wrap: wrap;
+  white-space: normal;
+}
+
+/* 6. Страховка для шапки, подвала, таблиц и панелей */
+.site-header, 
+.site-footer, 
+.panel, 
+.table-wrap {
+  max-width: 100vw;
+}
+
+/* 7. Специфичный фикс для калькулятора на мобильных */
+@media (max-width: 640px) {
+  .calc-row {
+    grid-template-columns: minmax(0, 1fr) auto; /* заставляем левую часть сжиматься */
+  }
+}
+
+
+/* =========================================
+   ФИКС ОТТЯГИВАНИЯ ЭКРАНА (BOUNCE / OVERSCROLL)
+   ========================================= */
+
+/* 1. Запрещаем странице оттягиваться вверх/вниз (убирает "резинку") */
+html, body {
+  overscroll-behavior-y: none;
+}
+
+/* 2. Красим фон самого HTML в темно-синий цвет (--panel). 
+   Теперь, если браузер всё же оттянет страницу, вы увидите не белый фон, 
+   а продолжение вашего хэдера (сверху) и футера (снизу). */
+html {
+  background-color: var(--panel);
+}
+
+
