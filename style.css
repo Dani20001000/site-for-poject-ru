@@ -432,3 +432,22 @@ html {
 }
 
 
+
+/* ---------- video ---------- */
+.video-panel {
+  display: flex;
+  justify-content: center;
+  padding: clamp(10px, 2vw, 16px);
+  background: var(--panel-deep);
+}
+.site-video {
+  display: block;
+  width: 100%;
+  max-width: 460px;
+  max-height: 72vh;
+  border-radius: 4px;
+  background: #000;
+}
+
+/* compact money figures in fact cards */
+.fact .num.compact { font-size: clamp(1.35rem, 2.2vw, 1.95rem); }

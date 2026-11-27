@@ -19,18 +19,18 @@
 </header>
 <main>
 <section class="page-head"><div class="wrap"><div class="stack">
-  <span class="tag">Заявка</span><h1>Оставить заявку</h1><p>Опишите, что нужно сделать. Хватит короткого описания, количества и желаемого срока. Примерную стоимость можно посмотреть в <a href="services.html#calculator" style="color:var(--accent)">калькуляторе</a>.</p></div></div></section>
+  <span class="tag">Заявка</span><h1>Оставить заявку</h1><p>Опишите, что нужно сделать. Хватит короткого описания, количества и желаемого срока. Если есть Gerber, BOM, чертёж или фото платы — приложите их письмом после заявки. Примерную стоимость можно посмотреть в <a href="services.html#calculator" style="color:var(--accent)">калькуляторе</a>.</p></div></div></section>
 <section class="section"><div class="wrap"><div class="split split-form">
   <form class="panel form" id="apply-form" name="zayavka" method="POST" data-mode="demo" data-netlify="true" netlify-honeypot="bot-field" novalidate>
     <input type="hidden" name="form-name" value="zayavka">
     <p class="hp" aria-hidden="true"><label>Не заполняйте: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
     <div class="field"><label for="f-name">Имя</label><input id="f-name" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться"><span class="err" aria-live="polite"></span></div>
     <div class="field"><label for="f-contact">Контакт</label><input id="f-contact" name="contact" type="text" autocomplete="email" placeholder="Телефон, e-mail или мессенджер"><span class="err" aria-live="polite"></span></div>
-    <div class="field"><label for="f-type">Тип работы</label><select id="f-type" name="type"><option>Ручной монтаж плат</option><option>Монтаж на автомате</option><option>Металлический корпус</option><option>Кабельные жгуты</option><option>Прошивка / утилита для микроконтроллера</option><option>Прототип с нуля</option><option>Другое</option></select></div>
+    <div class="field"><label for="f-type">Тип работы</label><select id="f-type" name="type"><option>Ручной монтаж плат</option><option>Монтаж на автомате</option><option>Металлический корпус</option><option>Кабельные жгуты</option><option>Прошивка / утилита для микроконтроллера</option><option>Прототип с нуля</option><option>Подготовка производства (NPI)</option><option>Другое</option></select></div>
     <div class="field"><label for="f-qty">Количество, шт.</label><input id="f-qty" name="qty" type="number" min="1" inputmode="numeric" placeholder="Например, 10"></div>
     <div class="field"><label for="f-date">Желаемый срок</label><input id="f-date" name="deadline" type="text" placeholder="Например, через неделю"></div>
     <div class="field"><label for="f-company">Компания или проект (если есть)</label><input id="f-company" name="company" type="text" autocomplete="organization"></div>
-    <div class="field full"><label for="f-desc">Описание задачи</label><textarea id="f-desc" name="description" placeholder="Что нужно сделать, какие компоненты и документация уже есть"></textarea><span class="err" aria-live="polite"></span></div>
+    <div class="field full"><label for="f-desc">Описание задачи</label><textarea id="f-desc" name="description" placeholder="Что нужно сделать, какие компоненты и документация уже есть. Укажите, есть ли Gerber, BOM или чертёж"></textarea><span class="err" aria-live="polite"></span></div>
     <div class="full btns"><button class="btn btn-primary" type="submit">Отправить заявку</button></div>
     <div class="form-status" id="form-status" role="status" hidden></div>
   </form>
@@ -38,7 +38,7 @@
     <img src="assets/img/cat-order.png" alt="Котик с посылкой" loading="lazy" decoding="async">
     <h3 class="gold">Что будет дальше</h3>
     <ol class="steps"><li>Уточним задачу</li><li>Назовём цену</li><li>Согласуем срок</li><li>Проверим и передадим</li></ol>
-    <p class="note">Ориентир по срокам для малых партий и прототипов: 2–4 дня при наличии деталей. Это ориентир, а не гарантия.</p>
+    <p class="note">Ориентир по срокам для малых партий и прототипов: 2–4 дня при наличии деталей. Это ориентир, а не гарантия. Запуск мастерской — сентябрь 2027 года.</p>
   </aside>
 </div></div></section>
 </main>
@@ -46,7 +46,7 @@
   <div class="wrap">
     <div class="stack" style="gap:10px">
       <a class="logo" href="index.html">УПКБ<span>КСИПТ</span></a>
-      <p>Учебно-производственное бюро КСИПТ. Делаем электронику под заказ: платы, корпуса, жгуты, прошивки и прототипы.</p>
+      <p>Учебно-производственное конструкторское бюро КСИПТ. Мастерская с автоматизированной SMT-линией: платы, корпуса, жгуты, прошивки и прототипы.</p>
     </div>
     <nav aria-label="Меню в подвале"><a href="index.html">Главная</a><a href="services.html">Услуги</a><a href="about.html">О нас</a><a href="contacts.html">Контакты</a><a href="apply.html">Оставить заявку</a></nav>
   </div>
